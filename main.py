@@ -8,8 +8,8 @@ import os
 import time
 
 sys.path.append('./code')
-from skipgram import build_model,traning_op,train
-from dataset import Dataset
+from code.skipgram import build_model,traning_op,train
+from code.dataset import Dataset
 
 
 def parse_args():
@@ -36,8 +36,8 @@ def main(args):
 		time.sleep(5)
 		os.system('rm -rf %s/'%args.log)
 	else:
-	    os.makedirs(args.log)
-	    print("made the log directory",args.log)
+		os.makedirs(args.log)
+		print("made the log directory",args.log)
 
 	dataset=Dataset(random_walk_txt=args.walks,node_type_mapping_txt=args.types,window_size=args.window)
 	center_node_placeholder,context_node_placeholder,negative_samples_placeholder,loss = build_model(BATCH_SIZE=1,VOCAB_SIZE=len(dataset.nodeid2index),EMBED_SIZE=args.embedding_dim,NUM_SAMPLED=args.negative_samples)

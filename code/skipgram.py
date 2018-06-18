@@ -22,7 +22,7 @@ def build_model(BATCH_SIZE,VOCAB_SIZE,EMBED_SIZE,NUM_SAMPLED):
         center_node = tf.placeholder(tf.int32, shape=[BATCH_SIZE], name='center_node')
         context_node = tf.placeholder(tf.int32, shape=[BATCH_SIZE, 1], name='context_node')
         negative_samples = (tf.placeholder(tf.int32, shape=[NUM_SAMPLED], name='negative_samples'),
-            tf.placeholder(tf.float32, shape=[BATCH_SIZE,1], name='true_expected_count'),
+            tf.placeholder(tf.float32, shape=[BATCH_SIZE, 1], name='true_expected_count'),
             tf.placeholder(tf.float32, shape=[NUM_SAMPLED], name='sampled_expected_count'))
 
     #https://github.com/tensorflow/tensorflow/blob/624bcfe409601910951789325f0b97f520c0b1ee/tensorflow/python/ops/nn_impl.py#L943-L946
